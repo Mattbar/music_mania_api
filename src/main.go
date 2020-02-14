@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	//"strconv"
-	//"math/rand"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
@@ -41,8 +39,8 @@ func main() {
 	router.HandleFunc("/songs", getSongs).Methods("GET")
 	router.HandleFunc("/songs/{id}", getSong).Methods("GET")
 
-	log.Println("Now server is running on port 8080")
-	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(headers, methods, origins)(router)))
+	log.Println("Now server is running on port ec2-3-83-39-253.compute-1.amazonaws.com")
+	log.Fatal(http.ListenAndServe("ec2-3-83-39-253.compute-1.amazonaws.com", handlers.CORS(headers, methods, origins)(router)))
 }
 
 func getSongs(w http.ResponseWriter, r *http.Request) {
