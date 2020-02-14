@@ -40,7 +40,7 @@ func main() {
 	router.HandleFunc("/songs/{id}", getSong).Methods("GET")
 
 	log.Println("Now server is running on port ec2-3-83-39-253.compute-1.amazonaws.com")
-	log.Fatal(http.ListenAndServe("ec2-3-83-39-253.compute-1.amazonaws.com:8080", handlers.CORS(headers, methods, origins)(router)))
+	log.Fatal(http.ListenAndServe("ec2-3-83-39-253.compute-1.amazonaws.com:8800", handlers.CORS(headers, methods, origins)(router)))
 }
 
 func getSongs(w http.ResponseWriter, r *http.Request) {
