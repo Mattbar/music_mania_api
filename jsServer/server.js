@@ -164,15 +164,15 @@ app.get("/song", function(req, res) {
 
       console.log("SDATA:", data);
 
-      let songURL =
-        data.Items && data.Items.length > 0 ? data.Items[0].url.S : null;
+      let songKey =
+        data.Items && data.Items.length > 0 ? data.Items[0].S3Key.S : null;
 
       console.log("URL: ", songURL);
 
       var response = {
         statusCode: 200,
         body: {
-          records: songURL
+          records: songKey
         }
       };
       return res.send(response);
@@ -184,5 +184,5 @@ var server = app.listen(8081, function() {
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log("Example app listening at http://%s:%s", host, port);
+  console.log("Example app listening at", port);
 });
